@@ -1,9 +1,10 @@
 import Layout from "../components/Layout/Layout.component";
+import SearchJobs from "../components/searchJobs/searchJobs.component";
 
 export default function Home() {
 	return (
 		<Layout>
-      <p>Hola soy el hijo del Layout</p>
+      <SearchJobs/>
     </Layout>
 	);
 }

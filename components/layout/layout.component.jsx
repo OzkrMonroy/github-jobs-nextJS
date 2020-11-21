@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
 			</Head>
       <div className="bg-gray-100">
-        <div className="container max-w-full px-2 md:px-0 md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto">
+        <div className="w-full px-2 md:px-0 sm:w-90p md:w-85p lg:w-90p mx-auto">
           <Header/>
           <div>{children}</div>
         </div>
