@@ -9,7 +9,7 @@ const SearchJobs = () => {
   }
 
 	return (
-		<div className="w-full bg-search-img bg-cover bg-no-repeat bg-center rounded-lg py-8">
+		<div className="w-full bg-search-img bg-cover bg-no-repeat bg-center rounded-lg py-8 mb-8">
 			<form
         className="flex items-center bg-white p-2 w-95p md:w-90p lg:w-80p mx-auto rounded-sm"
         onSubmit={handleOnSubmit}

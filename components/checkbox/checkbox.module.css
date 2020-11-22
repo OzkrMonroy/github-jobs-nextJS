@@ -1,0 +1,27 @@
+.checkboxContainer label::before,
+.checkboxContainer label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.checkboxContainer label::before {
+  width: 1.3rem;
+  height: 1.3rem;
+  border: 2px solid #B9BDCF;
+  border-radius: 0.25em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.checkboxContainer input[type="checkbox"]:checked + label::before {
+  background-color: #1E86FF;
+  border: 2px solid #1E86FF;
+}
+.checkboxContainer input[type="checkbox"]:checked + label::after {
+  transform: translate(.2rem, 3px) rotate(-46deg);
+  width: 0.8em;
+  height: 0.6em;
+  border: 0.12em solid #fff;
+  border-top-style: none;
+  border-right-style: none;
+}
