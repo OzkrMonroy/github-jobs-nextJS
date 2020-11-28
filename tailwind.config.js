@@ -11,6 +11,7 @@ module.exports = {
 				"work-img": "url(/workWhite.svg)",
 				"world-img": "url(/world.svg)",
 				"time-img": "url(/time.svg)",
+				"arrow-img": "url(/arrow.svg)",
 			}),
 			width: {
 				"5p": "5%",
@@ -34,6 +35,7 @@ module.exports = {
 			textColor: {
 				font: {
 					placeholder: "#B9BDCF",
+					primary: "#1E86FF",
 					second: " #334680",
 				},
 			},
