@@ -1,6 +1,13 @@
+import JobState from '../context/jobState';
 import '../styles/styles.css'
 import '../styles/tailwind.css';
 
-export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+const MyApp = ({ Component, pageProps }) => {
+  return (
+    <JobState>
+      <Component {...pageProps} />
+    </JobState>
+  )
 }
+
+export default MyApp
