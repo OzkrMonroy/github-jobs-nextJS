@@ -1,10 +1,12 @@
 import { useReducer } from "react"
 import JobContext from "./jobContext";
 import jobReducer from "./jobReducer"
+import { GET_DEFAULT_JOBS } from "./types/jobTypes";
 
 const JobState = ({children}) => {
   const initialState = {
-    jobsResult: []
+    jobsResult: [],
+    jobSelected: null
   }
 
   const [state, dispatch] = useReducer(jobReducer, initialState);
@@ -14,7 +16,10 @@ const JobState = ({children}) => {
       const response = await fetch('https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?location=new+york');
       const data = await response.json();
 
-      console.log(data);
+      dispatch({
+        type: GET_DEFAULT_JOBS,
+        payload: data
+      })
     } catch (error) {
       console.log(error);
     }
