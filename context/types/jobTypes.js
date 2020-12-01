@@ -1,1 +1,2 @@
 export const GET_DEFAULT_JOBS = "GET_DEFAULT_JOBS";
+export const SET_SELECTED_JOB = "SET_SELECTED_JOB";

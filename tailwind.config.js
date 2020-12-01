@@ -31,6 +31,7 @@ module.exports = {
 				"90p": "90%",
 				"95p": "95%",
 				"full": "100%",
+				"img-card-width": "500px",
 			},
 			textColor: {
 				font: {
@@ -46,6 +47,9 @@ module.exports = {
 				primary: "#1E86FF",
 				secondary: "#334680",
 			}),
+			height: {
+				"img-card-height": "100px"
+			}
 		},
 	},
 	variants: {},

@@ -1,7 +1,7 @@
 import { useReducer } from "react"
 import JobContext from "./jobContext";
 import jobReducer from "./jobReducer"
-import { GET_DEFAULT_JOBS } from "./types/jobTypes";
+import { GET_DEFAULT_JOBS, SET_SELECTED_JOB } from "./types/jobTypes";
 
 const JobState = ({children}) => {
   const initialState = {
@@ -25,10 +25,21 @@ const JobState = ({children}) => {
     }
   }
 
+  const setSelectedJob = id => {
+    const jobSelected = state.jobsResult.filter(job => job.id === id);
+
+    console.log(jobSelected[0]);
+    dispatch({
+      type: SET_SELECTED_JOB,
+      payload: jobSelected[0]
+    })
+  }
+
   return (
     <JobContext.Provider value={{
       jobsResult: state.jobsResult,
-      getJobsByDefault
+      getJobsByDefault,
+      setSelectedJob
     }}>
       {children}
     </JobContext.Provider>

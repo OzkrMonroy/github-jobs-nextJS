@@ -1,4 +1,4 @@
-import { GET_DEFAULT_JOBS } from "./types/jobTypes"
+import { GET_DEFAULT_JOBS, SET_SELECTED_JOB } from "./types/jobTypes"
 
 const jobReducer = (state, action) => {
   switch (action.type) {
@@ -6,6 +6,11 @@ const jobReducer = (state, action) => {
       return {
         ...state,
         jobsResult: action.payload
+      }
+    case SET_SELECTED_JOB:
+      return {
+        ...state,
+        jobSelected: action.payload
       }
     default:
       return state
