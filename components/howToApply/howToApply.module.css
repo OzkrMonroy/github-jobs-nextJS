@@ -4,4 +4,8 @@
 }
 .how-to-apply p a {
   color: #1E86FF;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
 }

@@ -1,4 +1,13 @@
 .job-description p {
   color: #334680;
   font-weight: 300;
+  margin-bottom: .5rem;
+}
+
+.job-description ul {
+  color: #334680;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  list-style-type: disc;
 }

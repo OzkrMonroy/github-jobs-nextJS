@@ -6,7 +6,7 @@ import { GET_DEFAULT_JOBS, SET_SELECTED_JOB } from "./types/jobTypes";
 const JobState = ({children}) => {
   const initialState = {
     jobsResult: [],
-    jobSelected: null
+    jobSelected: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("jobSelected")) : null
   }
 
   const [state, dispatch] = useReducer(jobReducer, initialState);
@@ -28,7 +28,10 @@ const JobState = ({children}) => {
   const setSelectedJob = id => {
     const jobSelected = state.jobsResult.filter(job => job.id === id);
 
-    console.log(jobSelected[0]);
+    const localJob = JSON.stringify(jobSelected[0])
+    console.log(localJob)
+
+    localStorage.setItem("jobSelected", localJob);
     dispatch({
       type: SET_SELECTED_JOB,
       payload: jobSelected[0]
@@ -38,6 +41,7 @@ const JobState = ({children}) => {
   return (
     <JobContext.Provider value={{
       jobsResult: state.jobsResult,
+      jobSelected: state.jobSelected,
       getJobsByDefault,
       setSelectedJob
     }}>
