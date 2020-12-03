@@ -1,27 +1,32 @@
 import { useReducer } from "react"
+import useGetJobsFromApi from "../hooks/useGetJobsFromApi";
 import JobContext from "./jobContext";
 import jobReducer from "./jobReducer"
-import { GET_DEFAULT_JOBS, SET_SELECTED_JOB } from "./types/jobTypes";
+import { SET_LOCATION_NAME, SET_SELECTED_JOB } from "./types/jobTypes";
 
 const JobState = ({children}) => {
   const initialState = {
     jobsResult: [],
-    jobSelected: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("jobSelected")) : null
+    jobSelected: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("jobSelected")) : null,
+    location: ""
   }
 
   const [state, dispatch] = useReducer(jobReducer, initialState);
+  const { getDataFromApi } = useGetJobsFromApi(dispatch);
 
   const getJobsByDefault = async () => {
     try {
-      const response = await fetch('https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?location=new+york');
-      const data = await response.json();
-
-      dispatch({
-        type: GET_DEFAULT_JOBS,
-        payload: data
-      })
+      await getDataFromApi()
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  const searchJobsApi = async (description, location) => {
+    try {
+      await getDataFromApi(description, location);
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -29,7 +34,6 @@ const JobState = ({children}) => {
     const jobSelected = state.jobsResult.filter(job => job.id === id);
 
     const localJob = JSON.stringify(jobSelected[0])
-    console.log(localJob)
 
     localStorage.setItem("jobSelected", localJob);
     dispatch({
@@ -38,12 +42,22 @@ const JobState = ({children}) => {
     })
   }
 
+  const setLocationName = locationName => {
+    dispatch({
+      type: SET_LOCATION_NAME,
+      payload: locationName
+    })
+  }
+
   return (
     <JobContext.Provider value={{
       jobsResult: state.jobsResult,
       jobSelected: state.jobSelected,
+      location: state.location,
       getJobsByDefault,
-      setSelectedJob
+      setSelectedJob,
+      searchJobsApi,
+      setLocationName
     }}>
       {children}
     </JobContext.Provider>

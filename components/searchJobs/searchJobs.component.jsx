@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import JobContext from "../../context/jobContext";
 
 const SearchJobs = () => {
+	const jobContext = useContext(JobContext);
+	const { location, searchJobsApi, setLocationName } = jobContext;
   const [jobSearch, setJobSearch] = useState("");
   
   const handleOnSubmit = e => {
-    e.preventDefault();
-    console.log(jobSearch);
+		e.preventDefault();
+
+		if(jobSearch.trim() === '') return
+
+		setJobSearch("");
+		setLocationName("");
+		searchJobsApi(jobSearch, location);
   }
 
 	return (

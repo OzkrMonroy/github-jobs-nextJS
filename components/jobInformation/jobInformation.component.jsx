@@ -12,8 +12,8 @@ const JobInformation = () => {
 
 	return (
 		<div className="w-full md:w-60p lg:w-70p flex flex-col">
-			<div className="flex flex-col lg:flex-row lg:items-center mb-4 lg:mb-0">
-				<h1 className="text-font-second font-bold text-2xl inline-block mb-2 lg:mr-4">
+			<div className="flex flex-col lg:flex-row lg:items-center mb-4">
+				<h1 className="text-font-second font-bold text-2xl inline-block mb-2 lg:mb-0 mr-4">
 					{title}
 				</h1>
 				{isFullTime && <FullTimeIndicator />}

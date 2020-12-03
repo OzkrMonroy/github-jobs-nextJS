@@ -6,10 +6,12 @@ import JobContext from "../context/jobContext";
 
 export default function Home() {
 	const jobContext = useContext(JobContext);
-	const { getJobsByDefault } = jobContext;
+	const { getJobsByDefault, jobsResult } = jobContext;
 
 	useEffect(() => {
-		getJobsByDefault()
+		if(jobsResult.length < 1){
+			getJobsByDefault()
+		}
 	}, [])
 	
 	return (
