@@ -2,7 +2,7 @@ import { useReducer } from "react"
 import useGetJobsFromApi from "../hooks/useGetJobsFromApi";
 import JobContext from "./jobContext";
 import jobReducer from "./jobReducer"
-import { SET_LOCATION_NAME, SET_SELECTED_JOB } from "./types/jobTypes";
+import { SET_LOADING, SET_LOCATION_NAME, SET_SELECTED_JOB } from "./types/jobTypes";
 
 const JobState = ({children}) => {
   const initialState = {
@@ -26,6 +26,9 @@ const JobState = ({children}) => {
 
   const searchJobsApi = async (description, location) => {
     try {
+      dispatch({
+        type: SET_LOADING
+      })
       await getDataFromApi(description, location);
     } catch (error) {
       console.error(error);
