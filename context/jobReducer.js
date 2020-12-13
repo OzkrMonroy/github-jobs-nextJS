@@ -5,7 +5,8 @@ const jobReducer = (state, action) => {
     case SAVE_RESULTS:
       return {
         ...state,
-        jobsResult: action.payload
+        jobsResult: action.payload,
+        loading: false
       }
     case SET_SELECTED_JOB:
       return {

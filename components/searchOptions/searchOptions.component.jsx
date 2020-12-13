@@ -1,12 +1,11 @@
 import { useContext } from "react";
 import JobContext from "../../context/jobContext";
 import CheckBox from "../checkbox/checkbox.component";
+import RadioButton from "../radioButtons/radioButton.component";
 
 const SearchOptions = () => {
 	const jobContext = useContext(JobContext);
-	const { setLocationName, location } = jobContext;
-
-	const cities = ["London", "Amsterdam", "New York", "Berlin"];
+	const { setLocationName, location, locationsByDefault } = jobContext;
 
 	const handleLocationChange = (e) => {
 		let locationName = e.target.value;
@@ -28,6 +27,7 @@ const SearchOptions = () => {
 				id="fullTimeOption"
 				marginBottom="10"
 				checked={true}
+				isDisabled={true}
 			/>
 			<div className="w-full">
 				<h2 className="text-font-placeholder font-bold text-base uppercase text-left mb-4">
@@ -43,13 +43,12 @@ const SearchOptions = () => {
 						onChange={handleLocationChange}
 					/>
 				</div>
-				{cities.map((city, index) => (
-					<CheckBox
-						label={city}
-						name={city}
-						id={city}
-						marginBottom="4"
+				{locationsByDefault.map((city, index) => (
+					<RadioButton
 						key={index}
+						label={city}
+						id={city}
+						marginBottom={4}
 					/>
 				))}
 			</div>

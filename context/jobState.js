@@ -7,8 +7,10 @@ import { SET_LOCATION_NAME, SET_SELECTED_JOB } from "./types/jobTypes";
 const JobState = ({children}) => {
   const initialState = {
     jobsResult: [],
-    jobSelected: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("jobSelected")) : null,
-    location: ""
+    jobSelected: null,
+    location: "",
+    locationsByDefault: ["London", "Amsterdam", "New York", "Berlin"],
+    loading: true
   }
 
   const [state, dispatch] = useReducer(jobReducer, initialState);
@@ -30,15 +32,13 @@ const JobState = ({children}) => {
     }
   }
 
-  const setSelectedJob = id => {
-    const jobSelected = state.jobsResult.filter(job => job.id === id);
-
-    const localJob = JSON.stringify(jobSelected[0])
+  const setSelectedJob = jobSelected => {
+    const localJob = JSON.stringify(jobSelected)
 
     localStorage.setItem("jobSelected", localJob);
     dispatch({
       type: SET_SELECTED_JOB,
-      payload: jobSelected[0]
+      payload: jobSelected
     })
   }
 
@@ -54,6 +54,8 @@ const JobState = ({children}) => {
       jobsResult: state.jobsResult,
       jobSelected: state.jobSelected,
       location: state.location,
+      locationsByDefault: state.locationsByDefault,
+      loading: state.loading,
       getJobsByDefault,
       setSelectedJob,
       searchJobsApi,

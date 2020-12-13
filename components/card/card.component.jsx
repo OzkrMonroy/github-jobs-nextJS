@@ -6,7 +6,7 @@ import FullTimeIndicator from "../fullTime/fullTimeIndicator.component";
 import LocationInformation from "../locationInformation/locationInformation.component";
 
 const Card = ({ jobInformation }) => {
-	const { company_logo, company, title, type, location, id } = jobInformation;
+	const { company_logo, company, title, type, location } = jobInformation;
 	const isFullTime = type === "Full Time" ? true : false;
 	const router = useRouter();
 	const jobContext = useContext(JobContext);
@@ -14,7 +14,7 @@ const Card = ({ jobInformation }) => {
 	const { setSelectedJob } = jobContext;
 
 	const handleOnClick = () => {
-		setSelectedJob(id);
+		setSelectedJob(jobInformation);
 		router.push("/resultPageTemp");
 	};
 
