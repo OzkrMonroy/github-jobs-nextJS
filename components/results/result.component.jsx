@@ -19,8 +19,7 @@ const Results = () => {
         ))}
       </div>
     );
-  }, [jobsResult])
+  }, [jobsResult, loading])
 }
  
 export default Results;
-// I added a Spinner that will display while the data is loading.

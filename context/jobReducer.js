@@ -1,4 +1,4 @@
-import { SAVE_RESULTS, SET_LOADING, SET_LOCATION_NAME, SET_SELECTED_JOB } from "./types/jobTypes"
+import { SAVE_RESULTS, SET_ERROR, SET_LOADING, SET_LOCATION_NAME, SET_SELECTED_JOB } from "./types/jobTypes"
 
 const jobReducer = (state, action) => {
   switch (action.type) {
@@ -6,7 +6,8 @@ const jobReducer = (state, action) => {
       return {
         ...state,
         jobsResult: action.payload,
-        loading: false
+        loading: false,
+        error: false
       }
     case SET_SELECTED_JOB:
       return {
@@ -21,7 +22,13 @@ const jobReducer = (state, action) => {
     case SET_LOADING:
       return {
         ...state,
-        loading: true
+        loading: true,
+        error: false
+      }
+    case SET_ERROR:
+      return {
+        ...state,
+        error: true
       }
     default:
       return state

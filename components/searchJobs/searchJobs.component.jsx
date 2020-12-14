@@ -3,7 +3,7 @@ import JobContext from "../../context/jobContext";
 
 const SearchJobs = () => {
 	const jobContext = useContext(JobContext);
-	const { location, searchJobsApi, setLocationName } = jobContext;
+	const { location, searchJobsApi, setLoadingStatus } = jobContext;
   const [jobSearch, setJobSearch] = useState("");
   
   const handleOnSubmit = e => {
@@ -11,8 +11,8 @@ const SearchJobs = () => {
 
 		if(jobSearch.trim() === '') return
 
+		setLoadingStatus()
 		setJobSearch("");
-		setLocationName("");
 		searchJobsApi(jobSearch, location);
   }
 

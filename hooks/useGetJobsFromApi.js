@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SAVE_RESULTS } from "../context/types/jobTypes";
+import { SAVE_RESULTS, SET_ERROR } from "../context/types/jobTypes";
 
 const useGetJobsFromApi = (dispatch) => {
 
@@ -15,6 +15,9 @@ const useGetJobsFromApi = (dispatch) => {
       })
     } catch (error) {
       console.error(error);
+      dispatch({
+        type: SET_ERROR
+      })
     }
   }
 

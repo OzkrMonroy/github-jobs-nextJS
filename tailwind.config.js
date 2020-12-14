@@ -12,7 +12,8 @@ module.exports = {
 				"world-img": "url(/world.svg)",
 				"time-img": "url(/time.svg)",
 				"arrow-img": "url(/arrow.svg)",
-				"empty-img": "url(/empty.svg)"
+				"empty-img": "url(/empty.svg)",
+				"error-img": "url(/error.svg)"
 			}),
 			width: {
 				"5p": "5%",
@@ -50,7 +51,7 @@ module.exports = {
 			}),
 			height: {
 				"img-card-height": "100px",
-				"element-default": "365px"
+				"element-default": "250px"
 			}
 		},
 	},

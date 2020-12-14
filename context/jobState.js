@@ -8,9 +8,10 @@ const JobState = ({children}) => {
   const initialState = {
     jobsResult: [],
     jobSelected: null,
-    location: "",
+    location: "New York",
     locationsByDefault: ["London", "Amsterdam", "New York", "Berlin"],
-    loading: true
+    loading: true,
+    error: false
   }
 
   const [state, dispatch] = useReducer(jobReducer, initialState);
@@ -26,9 +27,6 @@ const JobState = ({children}) => {
 
   const searchJobsApi = async (description, location) => {
     try {
-      dispatch({
-        type: SET_LOADING
-      })
       await getDataFromApi(description, location);
     } catch (error) {
       console.error(error);
@@ -52,6 +50,12 @@ const JobState = ({children}) => {
     })
   }
 
+  const setLoadingStatus = () => {
+    dispatch({
+      type: SET_LOADING
+    })
+  }
+
   return (
     <JobContext.Provider value={{
       jobsResult: state.jobsResult,
@@ -59,10 +63,12 @@ const JobState = ({children}) => {
       location: state.location,
       locationsByDefault: state.locationsByDefault,
       loading: state.loading,
+      error: state.error,
       getJobsByDefault,
       setSelectedJob,
       searchJobsApi,
-      setLocationName
+      setLocationName,
+      setLoadingStatus
     }}>
       {children}
     </JobContext.Provider>
