@@ -3,13 +3,16 @@ import JobContext from "../../context/jobContext";
 
 const SearchJobs = () => {
 	const jobContext = useContext(JobContext);
-	const { location, searchJobsApi, setLoadingStatus } = jobContext;
+	const { location, searchJobsApi, setLoadingStatus, setErrorForm } = jobContext;
   const [jobSearch, setJobSearch] = useState("");
   
   const handleOnSubmit = e => {
 		e.preventDefault();
 
-		if(jobSearch.trim() === '') return
+		if(jobSearch.trim() === '') {
+			setErrorForm("Enter text to search.")
+			return
+		}
 
 		setLoadingStatus()
 		setJobSearch("");

@@ -2,7 +2,7 @@ import { useReducer } from "react"
 import useGetJobsFromApi from "../hooks/useGetJobsFromApi";
 import JobContext from "./jobContext";
 import jobReducer from "./jobReducer"
-import { SET_LOADING, SET_LOCATION_NAME, SET_SELECTED_JOB } from "./types/jobTypes";
+import { CLEAN_ERROR, SET_ERROR_FORM, SET_LOADING, SET_LOCATION_NAME, SET_SELECTED_JOB } from "./types/jobTypes";
 
 const JobState = ({children}) => {
   const initialState = {
@@ -11,7 +11,9 @@ const JobState = ({children}) => {
     location: "New York",
     locationsByDefault: ["London", "Amsterdam", "New York", "Berlin"],
     loading: true,
-    error: false
+    error: false,
+    errorForm: false,
+    errorMessage: ""
   }
 
   const [state, dispatch] = useReducer(jobReducer, initialState);
@@ -56,6 +58,19 @@ const JobState = ({children}) => {
     })
   }
 
+  const setErrorForm = message => {
+    console.log(message);
+    dispatch({
+      type: SET_ERROR_FORM,
+      payload: message
+    })
+    setTimeout(() => {
+      dispatch({
+        type: CLEAN_ERROR
+      })
+    }, 3000);
+  }
+
   return (
     <JobContext.Provider value={{
       jobsResult: state.jobsResult,
@@ -64,11 +79,14 @@ const JobState = ({children}) => {
       locationsByDefault: state.locationsByDefault,
       loading: state.loading,
       error: state.error,
+      errorForm: state.errorForm,
+      errorMessage: state.errorMessage,
       getJobsByDefault,
       setSelectedJob,
       searchJobsApi,
       setLocationName,
-      setLoadingStatus
+      setLoadingStatus,
+      setErrorForm
     }}>
       {children}
     </JobContext.Provider>

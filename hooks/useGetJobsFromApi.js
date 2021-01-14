@@ -16,7 +16,8 @@ const useGetJobsFromApi = (dispatch) => {
     } catch (error) {
       console.error(error);
       dispatch({
-        type: SET_ERROR
+        type: SET_ERROR,
+        payload: "An error occurred"
       })
     }
   }

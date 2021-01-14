@@ -19,7 +19,7 @@ export default function Home() {
 		<Layout>
       <SearchJobs/>
 			<MainContent/>
-			{/* <SnackBar/> */}
+			<SnackBar/>
     </Layout>
 	);
 }
