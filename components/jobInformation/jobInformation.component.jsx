@@ -7,7 +7,7 @@ import styles from "./jobInformation.module.css";
 
 const JobInformation = () => {
 	const jobContext = useContext(JobContext)
-	const { jobSelected: { title, type, description } } = jobContext;
+	const { jobSelected: { title, type, description, created_at } } = jobContext;
 	const isFullTime = type === "Full Time" ? true : false;
 
 	return (
@@ -19,7 +19,7 @@ const JobInformation = () => {
 				{isFullTime && <FullTimeIndicator />}
 			</div>
 			<div className="flex mb-8">
-				<DateInformation />
+				<DateInformation createAt={created_at}/>
 			</div>
 			<div className="mb-8">
 				<CompanyInformation />

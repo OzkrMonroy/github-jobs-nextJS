@@ -13,7 +13,8 @@ const JobState = ({children}) => {
     loading: true,
     error: false,
     errorForm: false,
-    errorMessage: ""
+    errorMessage: "",
+    isFirstTime: true
   }
 
   const [state, dispatch] = useReducer(jobReducer, initialState);
@@ -81,6 +82,7 @@ const JobState = ({children}) => {
       error: state.error,
       errorForm: state.errorForm,
       errorMessage: state.errorMessage,
+      isFirstTime: state.isFirstTime,
       getJobsByDefault,
       setSelectedJob,
       searchJobsApi,

@@ -7,10 +7,10 @@ import JobContext from "../context/jobContext";
 
 export default function Home() {
 	const jobContext = useContext(JobContext);
-	const { getJobsByDefault, jobsResult } = jobContext;
+	const { getJobsByDefault, isFirstTime } = jobContext;
 
 	useEffect(() => {
-		if(jobsResult.length < 1){
+		if(isFirstTime){
 			getJobsByDefault()
 		}
 	}, [])

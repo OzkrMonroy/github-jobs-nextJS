@@ -7,7 +7,8 @@ const jobReducer = (state, action) => {
         ...state,
         jobsResult: action.payload,
         loading: false,
-        error: false
+        error: false,
+        isFirstTime: false
       }
     case SET_SELECTED_JOB:
       return {

@@ -6,7 +6,7 @@ import FullTimeIndicator from "../fullTime/fullTimeIndicator.component";
 import LocationInformation from "../locationInformation/locationInformation.component";
 
 const Card = ({ jobInformation }) => {
-	const { company_logo, company, title, type, location } = jobInformation;
+	const { company_logo, company, title, type, location, created_at } = jobInformation;
 	const isFullTime = type === "Full Time" ? true : false;
 	const router = useRouter();
 	const jobContext = useContext(JobContext);
@@ -42,7 +42,7 @@ const Card = ({ jobInformation }) => {
 							<LocationInformation location={location} />
 						</div>
 						<div className="flex items-center w-48p lg:w-35p sm:justify-end md:justify-start lg:justify-end">
-							<DateInformation />
+							<DateInformation createAt={created_at}/>
 						</div>
 					</div>
 				</div>
