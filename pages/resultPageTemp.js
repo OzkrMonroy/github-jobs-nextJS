@@ -1,9 +1,9 @@
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 import HowToApply from "../components/howToApply/howToApply.component";
 import JobInformation from "../components/jobInformation/jobInformation.component";
 import Layout from "../components/layout/layout.component";
-import JobContext from "../context/jobContext";
+import JobContext from "../context/jobs/jobContext";
 
 const ResultPageTemp = () => {
 	const jobContext = useContext(JobContext);

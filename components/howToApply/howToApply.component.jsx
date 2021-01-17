@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useContext } from "react";
-import JobContext from "../../context/jobContext";
+import JobContext from "../../context/jobs/jobContext";
 import styles from './howToApply.module.css';
 
 const HowToApply = () => {
@@ -18,7 +18,6 @@ const HowToApply = () => {
 				</a>
 			</Link>
 			<h2 className="text-font-placeholder uppercase font-bold text-base mb-4">How to apply</h2>
-			{/* Show "how-to-aply" data here */}
 			<div className={`${styles["how-to-apply"]} w-90p mr-auto ml-0`} dangerouslySetInnerHTML={{__html: how_to_apply}}></div>
 		</div>
 	);

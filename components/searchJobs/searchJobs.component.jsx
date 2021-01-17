@@ -1,9 +1,12 @@
 import { useContext, useState } from "react";
-import JobContext from "../../context/jobContext";
+import FormErrorsContext from "../../context/formErrors/formErrorsContext";
+import JobContext from "../../context/jobs/jobContext";
 
 const SearchJobs = () => {
 	const jobContext = useContext(JobContext);
-	const { location, searchJobsApi, setLoadingStatus, setErrorForm } = jobContext;
+	const formErrorsContext = useContext(FormErrorsContext);
+	const { location, searchJobsApi, setLoadingStatus } = jobContext;
+	const { setErrorForm } = formErrorsContext
   const [jobSearch, setJobSearch] = useState("");
   
   const handleOnSubmit = e => {

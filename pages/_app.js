@@ -1,11 +1,14 @@
-import JobState from '../context/jobState';
+import FormErrorsState from '../context/formErrors/FormErrorsState';
+import JobState from '../context/jobs/jobState';
 import '../styles/styles.css'
 import '../styles/tailwind.css';
 
 const MyApp = ({ Component, pageProps }) => {
   return (
     <JobState>
-      <Component {...pageProps} />
+      <FormErrorsState>
+        <Component {...pageProps} />
+      </FormErrorsState>
     </JobState>
   )
 }

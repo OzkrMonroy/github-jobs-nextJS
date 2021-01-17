@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useContext } from "react";
-import JobContext from "../../context/jobContext";
+import JobContext from "../../context/jobs/jobContext";
 import DateInformation from "../dateInformation/dateInformation.component";
 import FullTimeIndicator from "../fullTime/fullTimeIndicator.component";
 import LocationInformation from "../locationInformation/locationInformation.component";

@@ -1,5 +1,5 @@
 import { useContext, useMemo } from 'react';
-import JobContext from '../../context/jobContext';
+import JobContext from '../../context/jobs/jobContext';
 import Card from '../card/card.component'
 import NoResults from '../noResults/noResults.component';
 import Spinner from '../spinner/spinner.component';

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import JobContext from "../../context/jobContext";
+import JobContext from "../../context/jobs/jobContext";
 import CompanyInformation from "../companyInformation/companyInformation.component";
 import DateInformation from "../dateInformation/dateInformation.component";
 import FullTimeIndicator from "../fullTime/fullTimeIndicator.component";

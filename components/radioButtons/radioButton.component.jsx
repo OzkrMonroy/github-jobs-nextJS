@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import JobContext from "../../context/jobContext";
+import JobContext from "../../context/jobs/jobContext";
 import styles from "./radioButton.module.css";
 
 const RadioButton = ({ label, id, marginBottom }) => {
