@@ -11,23 +11,23 @@ const Layout = ({ children }) => {
 					rel="stylesheet"
 				/>
         <title>Jobs from Github Jobs API</title>
-        <meta name="description" content="Get weather information from anywhere"/>
+        <meta name="description" content="Get jobs information from Github Jobs API"/>
         <meta
           property="og:url"
-          content="https://weather-app-ruddy.vercel.app/"
+          content="https://jobsfromgithubapi.netlify.app/"
         />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Weather App"
+          content="GitHub Jobs App"
         />
         <meta
           property="og:description"
-          content="Get weather information from anywhere"
+          content="Get jobs information from Github Jobs API."
         />
         <meta
           property="og:image"
-          content="https://firebasestorage.googleapis.com/v0/b/producthunt-647c4.appspot.com/o/weatherScreenApp%2FLaptop.jpg?alt=media&token=99db63cb-aa36-49db-abdf-120ccea560c8"
+          content="https://firebasestorage.googleapis.com/v0/b/onlineclassroomsolution.appspot.com/o/GitHubJobsApp.png?alt=media&token=b6df7201-2f1c-409d-8d0e-2ab7281251e1"
         />
         <link rel="icon" href="/favicon.ico" />
 			</Head>

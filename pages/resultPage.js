@@ -3,9 +3,10 @@ import { useContext, useEffect } from "react";
 import HowToApply from "../components/howToApply/howToApply.component";
 import JobInformation from "../components/jobInformation/jobInformation.component";
 import Layout from "../components/layout/layout.component";
+import Spinner from "../components/spinner/spinner.component";
 import JobContext from "../context/jobs/jobContext";
 
-const ResultPageTemp = () => {
+const ResultPage = () => {
 	const jobContext = useContext(JobContext);
 	const route = useRouter();
 	const { jobSelected, setSelectedJob } = jobContext;
@@ -27,12 +28,12 @@ const ResultPageTemp = () => {
 					<JobInformation />
 				</div>
 			) : (
-				<div>
-					<p>Cargando...</p>
+				<div className="flex relative w-full justify-center">
+					<Spinner/>
 				</div>
 			)}
 		</Layout>
 	);
 };
 
-export default ResultPageTemp;
+export default ResultPage;

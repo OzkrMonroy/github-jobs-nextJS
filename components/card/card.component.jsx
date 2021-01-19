@@ -15,7 +15,7 @@ const Card = ({ jobInformation }) => {
 
 	const handleOnClick = () => {
 		setSelectedJob(jobInformation);
-		router.push("/resultPageTemp");
+		router.push("/resultPage");
 	};
 
 	return (

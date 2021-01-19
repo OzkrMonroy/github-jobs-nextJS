@@ -3,7 +3,11 @@ module.exports = {
 		// removeDeprecatedGapUtilities: true,
 		// purgeLayersByDefault: true,
 	},
-	purge: [],
+	purge: {
+    // './src/**/*.html',
+		// './src/**/*.jsx',
+		enabled: false
+  },
 	theme: {
 		extend: {
 			backgroundImage: (theme) => ({
