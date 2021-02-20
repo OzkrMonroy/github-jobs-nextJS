@@ -12,6 +12,7 @@ const ResultPage = () => {
 	const { jobSelected, setSelectedJob } = jobContext;
 
 	useEffect(() => {
+		window.scroll({top: 0, left: 0, behavior: 'smooth'});
 		const localJobSelected = JSON.parse(localStorage.getItem("jobSelected"));
 		if(localJobSelected){
 			setSelectedJob(localJobSelected);

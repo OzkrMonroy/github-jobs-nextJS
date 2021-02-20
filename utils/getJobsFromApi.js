@@ -5,7 +5,7 @@ export const getDataFromApi = async (dispatch, description = "JavaScript", locat
 	const locationToUse = location !== "" ? location : "New York";
 	try {
 		const axiosData = await axios.get(
-			`https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${description}&full_time=true&location=${locationToUse}`
+			`https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=${description}&full_time=true&location=${locationToUse}`
 		);
 		const data = axiosData.data;
 

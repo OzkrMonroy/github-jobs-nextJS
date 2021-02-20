@@ -11,7 +11,6 @@ const Results = () => {
   return useMemo(() => {
     return loading ? <Spinner/> : (
       <div className="flex flex-col items-center w-full md:w-55p lg:w-60p">
-        {console.log(jobsResult)}
         {jobsResult.length < 1 ? 
           <NoResults/>
         : jobsResult.map(job => (
