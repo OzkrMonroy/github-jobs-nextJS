@@ -51,4 +51,4 @@ You can find the challenge [here](https://devchallenges.io/challenges/TtUjDt19eI
 
 
 
-[image]: https://firebasestorage.googleapis.com/v0/b/onlineclassroomsolution.appspot.com/o/GitHubJobsApp.png?alt=media&token=b6df7201-2f1c-409d-8d0e-2ab7281251e1 "Project screenshot"
+[image]: https://firebasestorage.googleapis.com/v0/b/producthunt-647c4.appspot.com/o/AppsScreenShots%2FGitHubJobsAppO-min.png?alt=media&token=266fe8ad-9970-4423-8f7a-a72036176829 "Project screenshot"
